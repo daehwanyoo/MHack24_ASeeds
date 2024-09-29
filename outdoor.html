@@ -13,7 +13,16 @@
 
 
    <title>Plant Manager</title>
-
+   <style>
+    /* Add custom style for handwritten date */
+    .styled-date {
+        font-family: 'Pacifico', cursive;  /* Handwritten style */
+        font-size: 2rem;
+        color: #72a2c4;
+        margin-top: 2rem;
+    }
+    /* Style the pop-up container */
+ </style>
 </head>
 <body>
   <img src="assets/img/sunny.png" alt="image" class="login__bg">
@@ -66,6 +75,10 @@
     </div>
   </div>
 
+  <div id="calendar-icon" class="calendar">
+    <span id="current-date" class="styled-date"></span>
+  </div>
+  
   <!-- Popup modal -->
   <div id="popup" class="popup hidden">
     <div class="popup-content">
