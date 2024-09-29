@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle calendar pop-up
   const calendarIcon = document.getElementById('calendar-icon');
   const calendarPopup = document.getElementById('calendar-popup');
-  const closePopupBtn = document.getElementById('confirm-btn');
+  const closePopupBtn = document.getElementById('cal-close-btn');
 
   // Open the pop-up when the calendar icon is clicked
   calendarIcon.addEventListener('click', () => {
