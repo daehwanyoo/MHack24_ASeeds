@@ -1,7 +1,7 @@
 # Magic Seeds
-![Thumbnail](assets/img/thumbnail.png)
+[![Thumbnail](assets/img/thumbnail.png)](https://daehwanyoo.github.io/MHack24_ASeeds/index.html)
 
-https://daehwanyoo.github.io/MHack24_ASeeds/indoor.html
+https://daehwanyoo.github.io/MHack24_ASeeds/index.html
 
 ## Inspiration
 Our project, Magic Seeds, is inspired by the need to make plant care easier and more accessible, especially for individuals who love gardening but struggle to keep track of plant care schedules. We wanted to create a platform where users can effortlessly manage their plants and receive reminders for watering and other needs, using text notifications powered by the MagicLoops API.
