@@ -28,7 +28,7 @@ body {
 }
 .button-container {
   position: absolute;
-  bottom: 10%;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 70%;
@@ -41,22 +41,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute; /* Updated to absolute for free movement */
-  cursor: grab; /* Indicates it's draggable */
-}
-
-.plus-button:active {
-  cursor: grabbing;
 }
 
 .plus-button button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: gray;
-  color: white;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
   border: none;
-  cursor: pointer;
   font-size: 24px;
   position: center;
 }

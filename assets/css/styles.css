@@ -97,7 +97,7 @@ img {
 .login__input{
   border: none;
   outline: none;
-} 
+}
 .login__button {
   width: 100%;
   padding: 1rem;
@@ -172,16 +172,7 @@ img {
 }
 
 /*================ OUTDOOR ==================*/
-.plus-button {
-  background-color: gray;
-  border: none;
-  border-radius: 50%;
-  color: white;
-  font-size: 24px;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
+
 
 
 .show-login {
