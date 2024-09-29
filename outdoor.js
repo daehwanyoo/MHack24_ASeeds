@@ -3,6 +3,7 @@
 
   let plantData = {}; // Store plant info for each button
   let usedImages = new Set(); // Track used images
+  let totalPlantsAdded = 0; // Track the total plants added by the user
 
   window.addEventListener("load", init);
 
@@ -13,16 +14,36 @@
       });
     });
 
-    // Make the plant images clickable as well
     qsa(".plant img").forEach((plantImg, index) => {
       plantImg.addEventListener("click", function() {
         openPopup(index, plantImg);
       });
     });
+
+    // Profile popup logic
+    const profilePic = document.querySelector(".profile-pic");
+    profilePic.addEventListener("click", openProfilePopup);
+
+    const closeProfileBtn = id("close-profile-btn");
+    closeProfileBtn.addEventListener("click", closeProfilePopup);
+  }
+
+  function openProfilePopup() {
+    const profilePopup = id("profile-popup");
+    profilePopup.classList.remove("hidden");
+
+    // Fill profile popup fields
+    id("email-id").value = "user@example.com"; // Replace with actual user email
+    id("username").value = "username"; // Replace with actual username
+    id("total-plants").value = totalPlantsAdded;
+  }
+
+  function closeProfilePopup() {
+    const profilePopup = id("profile-popup");
+    profilePopup.classList.add("hidden");
   }
 
   function openPopup(index, element) {
-    // Show the popup
     const popup = id("popup");
     popup.classList.remove("hidden");
 
@@ -32,12 +53,10 @@
     };
 
     if (plantData[index]) {
-      // Pre-fill popup if data already exists
       id("plant-type").value = plantData[index].type;
       id("nickname").value = plantData[index].nickname;
       id("watered-date").value = plantData[index].wateredDate;
     } else {
-      // Clear the form for new entry
       id("plant-type").value = '';
       id("nickname").value = '';
       id("watered-date").value = '';
@@ -49,17 +68,14 @@
     const nickname = id("nickname").value;
     const wateredDate = id("watered-date").value;
 
-    // Save the data
     plantData[index] = {
       type: plantType,
       nickname: nickname,
       wateredDate: wateredDate
     };
 
-    // Hide popup
     id("popup").classList.add("hidden");
 
-    // Show random plant image if it's not already displayed
     if (element.tagName.toLowerCase() === 'button') {
       const plantDiv = element.parentElement.nextElementSibling;
       if (plantDiv) {
@@ -68,22 +84,20 @@
         plantDiv.classList.remove("hidden");
       }
 
-      // Hide the plus button after confirming
       element.parentElement.classList.add('hidden');
+      totalPlantsAdded++;
     }
   }
 
   function getRandomImage() {
     let randomNumber;
     do {
-      randomNumber = Math.floor(Math.random() * 8) + 1; // Random number from 1 to 8
+      randomNumber = Math.floor(Math.random() * 8) + 1;
     } while (usedImages.has(randomNumber));
 
     usedImages.add(randomNumber);
     return `${randomNumber}.png`;
   }
-
-  /* ------------------------------ Helper Functions  ------------------------------ */
 
   function id(idName) {
     return document.getElementById(idName);

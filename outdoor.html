@@ -20,10 +20,9 @@
 
   <script src="outdoor.js"></script>
   <div class="profile-container">
-    <a href="profile.html">
-      <img src="assets/img/profile.png" alt="Profile" class="profile-pic">
-    </a>
+    <img src="assets/img/profile.png" alt="Profile" class="profile-pic">
   </div>
+  
 
   <div class="back-indoor">
     <img src="assets/img/house-drawing-1.png" alt="image" class="house">
@@ -79,6 +78,24 @@
       <button id="confirm-btn">Confirm</button>
     </div>
   </div>
+<!-- Profile Popup modal -->
+<div id="profile-popup" class="popup hidden">
+  <div class="popup-content">
+     <label>Email ID:</label>
+     <input type="email" id="email-id" name="email-id" readonly>
+
+     <label>Username:</label>
+     <input type="text" id="username" name="username" readonly>
+
+     <label>Total Plants Added:</label>
+     <input type="text" id="total-plants" name="total-plants" readonly>
+
+     <label for="magicloops">Magic Loops Suggestions:</label>
+     <input type="checkbox" id="magicloops" name="magicloops">
+
+     <button id="close-profile-btn">Close</button>
+  </div>
+</div>
 
 </body>
 </html>
