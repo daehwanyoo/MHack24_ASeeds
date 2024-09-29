@@ -11,6 +11,9 @@
       button.addEventListener("click", function() {
         openPopup(index, button);
       });
+
+      // Make the button draggable
+      makeDraggable(button);
     });
 
     // Make the plant images clickable as well
@@ -71,6 +74,42 @@
       // Hide the plus button after confirming
       element.parentElement.classList.add('hidden');
     }
+  }
+
+  function makeDraggable(button) {
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    button.parentElement.onmousedown = function(e) {
+      isDragging = true;
+      offsetX = e.clientX - button.parentElement.getBoundingClientRect().left;
+      offsetY = e.clientY - button.parentElement.getBoundingClientRect().top;
+    };
+
+    document.onmousemove = function(e) {
+      if (isDragging) {
+        let newX = e.clientX - offsetX;
+        let newY = e.clientY - offsetY;
+
+        // Ensure the button stays within the container bounds
+        const container = document.body;
+        const rect = button.parentElement.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+
+        if (newX < 0) newX = 0;
+        if (newY < 0) newY = 0;
+        if (newX + rect.width > containerRect.width) newX = containerRect.width - rect.width;
+        if (newY + rect.height > containerRect.height) newY = containerRect.height - rect.height;
+
+        button.parentElement.style.left = `${newX}px`;
+        button.parentElement.style.top = `${newY}px`;
+        button.parentElement.style.position = "absolute";
+      }
+    };
+
+    document.onmouseup = function() {
+      isDragging = false;
+    };
   }
 
   function getRandomImage() {

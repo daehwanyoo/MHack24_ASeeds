@@ -26,6 +26,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute; /* Updated to absolute for free movement */
+  cursor: grab; /* Indicates it's draggable */
+}
+
+.plus-button:active {
+  cursor: grabbing;
 }
 
 .plus-button button {
