@@ -1,64 +1,86 @@
 (function() {
   "use strict";
 
+  let plantData = {}; // Store plant info for each button
+  let usedImages = new Set(); // Track used images
+
   window.addEventListener("load", init);
 
   function init() {
-    qsa(".plus-button").forEach(button => {
+    qsa(".plus-button button").forEach((button, index) => {
       button.addEventListener("click", function() {
-        addPlant(button);
+        openPopup(index, button);
       });
     });
   }
 
-  function addPlant(button) {
-    // button.style.display = 'none';
-    button.classList.add('hidden');
-    const plantDiv = button.nextElementSibling;
-    if (plantDiv) {
-      plantDiv.classList.remove('hidden');
+  function openPopup(index, button) {
+    // Show the popup
+    const popup = id("popup");
+    popup.classList.remove("hidden");
+
+    const confirmBtn = id("confirm-btn");
+    confirmBtn.onclick = function() {
+      handleConfirm(index, button);
+    };
+
+    if (plantData[index]) {
+      // Pre-fill popup if data already exists
+      id("plant-type").value = plantData[index].type;
+      id("nickname").value = plantData[index].nickname;
+      id("watered-date").value = plantData[index].wateredDate;
+    } else {
+      // Clear the form for new entry
+      id("plant-type").value = '';
+      id("nickname").value = '';
+      id("watered-date").value = '';
     }
   }
 
+  function handleConfirm(index, button) {
+    const plantType = id("plant-type").value;
+    const nickname = id("nickname").value;
+    const wateredDate = id("watered-date").value;
 
+    // Save the data
+    plantData[index] = {
+      type: plantType,
+      nickname: nickname,
+      wateredDate: wateredDate
+    };
 
-    /* ------------------------------ Helper Functions  ------------------------------ */
-  // Note: You may use these in your code, but do remember that your code should not have
-  // any functions defined that are unused.
+    // Hide popup
+    id("popup").classList.add("hidden");
 
-  /**
-   * Returns the element that has the ID attribute with the specified value.
-   * @param {string} idName - element ID
-   * @returns {object} DOM object associated with id.
-   */
+    // Show random plant image
+    const plantDiv = button.parentElement.nextElementSibling;
+    if (plantDiv) {
+      const randomImage = getRandomImage();
+      plantDiv.querySelector("img").src = `assets/img/${randomImage}`;
+      plantDiv.classList.remove("hidden");
+    }
+
+    // Hide the plus button after confirming
+    button.parentElement.classList.add('hidden');
+  }
+
+  function getRandomImage() {
+    let randomNumber;
+    do {
+      randomNumber = Math.floor(Math.random() * 8) + 1; // Random number from 1 to 8
+    } while (usedImages.has(randomNumber));
+
+    usedImages.add(randomNumber);
+    return `${randomNumber}.png`;
+  }
+
+  /* ------------------------------ Helper Functions  ------------------------------ */
+
   function id(idName) {
     return document.getElementById(idName);
   }
 
-  /**
-   * Returns the first element that matches the given CSS selector.
-   * @param {string} selector - CSS query selector.
-   * @returns {object} The first DOM object matching the query.
-   */
-  function qs(selector) { // less common, but you may find it helpful
-    return document.querySelector(selector);
-  }
-
-  /**
-   * Returns all the element that matches the given css selector.
-   * @param  {string} selector - CSS query selector.
-   * @return {object} All DOM object matching the query.
-   */
   function qsa(selector) {
     return document.querySelectorAll(selector);
   }
-
-  /**
-   * Displays the error message when the fetch did not pass successfully.
-   */
-  function displayError() {
-    id("error-text").innerText = "Something went wrong with the Saving request. Please try again later.";
-    id("error-text").classList.remove("hidden");
-  }
-
 })();

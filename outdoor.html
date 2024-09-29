@@ -10,16 +10,18 @@
    <!--=============== CSS ===============-->
    <link rel="stylesheet" href="assets/css/outdoor.css">
 
-   <title>Login form - Bedimcode</title>
+   <title>Plant Manager</title>
 
 </head>
 <body>
   <script src="outdoor.js"></script>
+  
   <div class="back-indoor">
     <img src="assets/img/house-drawing-1.png" alt="image" class="house">
   </div>
 
   <div class="button-container">
+    <!-- Plus buttons with associated plants -->
     <div class="center">
       <div class="plus-button">
         <button>+</button>
@@ -55,5 +57,19 @@
       <div class="plant hidden"><img src="assets/img/plant.png" alt="image"></div>
     </div>
   </div>
+
+  <!-- Popup modal -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <label for="plant-type">Plant Type:</label>
+      <input type="text" id="plant-type" name="plant-type">
+      <label for="nickname">Nickname:</label>
+      <input type="text" id="nickname" name="nickname">
+      <label for="watered-date">Last Watered Date:</label>
+      <input type="date" id="watered-date" name="watered-date">
+      <button id="confirm-btn">Confirm</button>
+    </div>
+  </div>
+
 </body>
 </html>
