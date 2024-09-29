@@ -12,8 +12,6 @@
         openPopup(index, button);
       });
 
-      // Make the button draggable
-      makeDraggable(button);
     });
 
     // Make the plant images clickable as well
@@ -44,6 +42,7 @@
       id("plant-type").value = '';
       id("nickname").value = '';
       id("watered-date").value = '';
+    
     }
   }
 
@@ -63,18 +62,26 @@
     id("popup").classList.add("hidden");
 
     // Show random plant image if it's not already displayed
+    let plantDiv;
     if (element.tagName.toLowerCase() === 'button') {
-      const plantDiv = element.parentElement.nextElementSibling;
-      if (plantDiv) {
-        const randomImage = getRandomImage();
-        plantDiv.querySelector("img").src = `assets/img/${randomImage}`;
-        plantDiv.classList.remove("hidden");
-      }
-
-      // Hide the plus button after confirming
+      // Find the plant div associated with this button
+      plantDiv = element.closest(".plus-button").nextElementSibling;
+    } else {
+      // If the element is the plant image itself
+      plantDiv = element.closest(".plant");
+    }
+  
+    if (plantDiv && !plantDiv.querySelector("img").src.includes('assets/img/')) {
+      const randomImage = getRandomImage();
+      plantDiv.querySelector("img").src = `assets/img/${randomImage}`;
+      plantDiv.classList.remove("hidden");
+    }
+  
+    // Hide the plus button after confirming
+    if (element.tagName.toLowerCase() === 'button') {
       element.parentElement.classList.add('hidden');
     }
-  }
+    }
 
   function getRandomImage() {
     let randomNumber;
