@@ -12,16 +12,23 @@
         openPopup(index, button);
       });
     });
+
+    // Make the plant images clickable as well
+    qsa(".plant img").forEach((plantImg, index) => {
+      plantImg.addEventListener("click", function() {
+        openPopup(index, plantImg);
+      });
+    });
   }
 
-  function openPopup(index, button) {
+  function openPopup(index, element) {
     // Show the popup
     const popup = id("popup");
     popup.classList.remove("hidden");
 
     const confirmBtn = id("confirm-btn");
     confirmBtn.onclick = function() {
-      handleConfirm(index, button);
+      handleConfirm(index, element);
     };
 
     if (plantData[index]) {
@@ -37,7 +44,7 @@
     }
   }
 
-  function handleConfirm(index, button) {
+  function handleConfirm(index, element) {
     const plantType = id("plant-type").value;
     const nickname = id("nickname").value;
     const wateredDate = id("watered-date").value;
@@ -52,16 +59,18 @@
     // Hide popup
     id("popup").classList.add("hidden");
 
-    // Show random plant image
-    const plantDiv = button.parentElement.nextElementSibling;
-    if (plantDiv) {
-      const randomImage = getRandomImage();
-      plantDiv.querySelector("img").src = `assets/img/${randomImage}`;
-      plantDiv.classList.remove("hidden");
-    }
+    // Show random plant image if it's not already displayed
+    if (element.tagName.toLowerCase() === 'button') {
+      const plantDiv = element.parentElement.nextElementSibling;
+      if (plantDiv) {
+        const randomImage = getRandomImage();
+        plantDiv.querySelector("img").src = `assets/img/${randomImage}`;
+        plantDiv.classList.remove("hidden");
+      }
 
-    // Hide the plus button after confirming
-    button.parentElement.classList.add('hidden');
+      // Hide the plus button after confirming
+      element.parentElement.classList.add('hidden');
+    }
   }
 
   function getRandomImage() {
