@@ -202,4 +202,19 @@ html, body {
     cursor: pointer; /* Make it clickable */
 
   }
+#calendar-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-image: url('../img/calendar.png');
+    background-size: cover; 
+    width: 285px;  /* Adjust size for the calendar */
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #2a8aea;  /* Change text color to contrast with background */
+}
   

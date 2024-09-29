@@ -13,6 +13,16 @@
 
 
    <title>Plant Manager</title>
+   <style>
+    /* Add custom style for handwritten date */
+    .styled-date {
+        font-family: 'Pacifico', cursive;  /* Handwritten style */
+        font-size: 2rem;
+        color: #72a2c4;
+        margin-top: 2rem;
+    }
+    /* Style the pop-up container */
+ </style>
 
 </head>
 <body>
@@ -22,6 +32,7 @@
   <div class="profile-container">
     <img src="assets/img/profile.png" alt="Profile" class="profile-pic">
   </div>
+  
   
 
   <div class="back-indoor">
@@ -65,7 +76,9 @@
       <div class="plant hidden"><img src="assets/img/plant.png" alt="image"></div>
     </div>
   </div>
-
+  <div id="calendar-icon" class="calendar">
+    <span id="current-date" class="styled-date"></span>
+  </div>
   <!-- Popup modal -->
   <div id="popup" class="popup hidden">
     <div class="popup-content">
@@ -96,9 +109,12 @@
      <button id="close-profile-btn">Close</button>
   </div>
 </div>
+
 <div class="background-container">
   <div class="rectangle" onclick="window.location.href='outdoor.html';"></div>
 </div>
+    
+
 
 </body>
 </html>

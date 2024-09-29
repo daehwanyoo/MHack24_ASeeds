@@ -108,3 +108,34 @@
     }
   })();
   
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set current date on the calendar icon
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    const currentDate = new Date().toLocaleDateString('en-US', options);
+    document.getElementById('current-date').textContent = currentDate;
+  
+    // Handle calendar pop-up
+    const calendarIcon = document.getElementById('calendar-icon');
+    const calendarPopup = document.getElementById('calendar-popup');
+    const closePopupBtn = document.getElementById('close-popup');
+  
+    // Open the pop-up when the calendar icon is clicked
+    calendarIcon.addEventListener('click', () => {
+        console.log("Calendar icon clicked"); // Debugging log
+        calendarPopup.classList.remove('hidden'); // Show the pop-up
+    });
+  
+    // Close the pop-up when the close button is clicked
+    closePopupBtn.addEventListener('click', () => {
+        console.log("Close button clicked"); // Debugging log
+        calendarPopup.classList.add('hidden'); // Hide the pop-up
+    });
+  
+    // Close the pop-up when clicking outside the pop-up content
+    window.addEventListener('click', (event) => {
+        if (event.target === calendarPopup) {
+            console.log("Outside pop-up clicked"); // Debugging log
+            calendarPopup.classList.add('hidden');
+        }
+    });
+  });
