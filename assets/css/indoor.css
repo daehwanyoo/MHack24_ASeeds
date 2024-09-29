@@ -1,0 +1,205 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  .profile-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;  /* Increased size */
+    height: 80px; /* Increased size */
+  }
+  .profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image fits within the circle */
+    cursor: pointer;
+    border: 2px solid #000; /* Adds a 2-pixel border */
+  
+  }
+  .button-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 50%;
+  }
+  
+  .plus-button {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .plus-button button {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    position: center;
+  }
+  
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .plant {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .plant img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .house {
+    width: 20%;
+    height: 20%;
+  }
+  
+  .popup {
+    color: #bc9cf8;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    /* background-color: #F5F5F5; Light off-white background */
+    background-color: hsla(0, 0%, 100%, .25);
+    backdrop-filter: blur(3px);
+    border-radius: 15px; /* Soft rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    border: 2px solid #d0bcf5; /* Soft border to match aesthetic */
+  }
+  
+  .popup-content label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .popup-content input {
+    border: 2px solid #D1C4E9;
+    background-color: hsla(0, 0%, 100%, .01);
+    backdrop-filter: blur(3px);
+    border-radius: 2em;
+    width: 100%;
+    padding: 5px;
+  }
+  
+  #confirm-btn {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #bc9cf8;
+    border-radius: 2em;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #watered-date {
+    color: #bc9cf8;
+  }
+  
+  #profile-popup {
+    color: #bc9cf8;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: hsla(0, 0%, 100%, .25);
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 2px solid #d0bcf5;
+  }
+  
+  #profile-popup .popup-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #profile-popup input[type="email"], #profile-popup input[type="text"] {
+    border: 2px solid #D1C4E9;
+    background-color: hsla(0, 0%, 100%, .01);
+    border-radius: 2em;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  #profile-popup input[type="checkbox"] {
+    margin: 10px 0;
+  }
+  
+  #close-profile-btn {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #bc9cf8;
+    border-radius: 2em;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .rectangle {
+    position: absolute;
+    top: 13.77%;
+    left: 70.91%;
+    width: 43.09%;
+    height: 36.96%;
+    background-color: transparent; /* Make it fully transparent */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+  
+  }
+  
