@@ -13,9 +13,9 @@ html, body {
   .profile-container {
     position: absolute;
     top: 20px;
-    right: 20px;
-    width: 80px;  /* Increased size */
-    height: 80px; /* Increased size */
+    right: 50px;
+    width: 150px;  /* Increased size */
+    height: 150px; /* Increased size */
   }
   .profile-pic {
     width: 100%;
@@ -23,7 +23,7 @@ html, body {
     border-radius: 50%; /* Makes the image round */
     object-fit: cover; /* Ensures the image fits within the circle */
     cursor: pointer;
-    border: 2px solid #000; /* Adds a 2-pixel border */
+    border: 10px solid #000; /* Adds a 2-pixel border */
   
   }
   .button-container {
