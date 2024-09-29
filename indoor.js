@@ -139,3 +139,12 @@
         }
     });
   });
+  document.getElementById("calendar-icon").addEventListener("click", function() {
+    const popup = document.getElementById("calendar-popup");
+    popup.classList.toggle("hidden");  // Show or hide the popup
+  });
+  
+  document.getElementById("close-popup").addEventListener("click", function() {
+    const popup = document.getElementById("calendar-popup");
+    popup.classList.add("hidden");  // Hide the popup when close is clicked
+  });

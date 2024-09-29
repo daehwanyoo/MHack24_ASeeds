@@ -79,6 +79,26 @@
   <div id="calendar-icon" class="calendar">
     <span id="current-date" class="styled-date"></span>
   </div>
+</div>
+
+<div id="calendar-popup" class="popup hidden">
+  <h3>Watering Reminder</h3>
+  <table class="water-info">
+     <tr>
+        <td class="plant-name">Rose:</td>
+        <td>You watered Rose 3 days ago, next watering in 2 days</td>
+     </tr>
+     <tr>
+        <td class="plant-name">Lavender:</td>
+        <td>You watered Lavender 4 days ago, next watering in 1 day</td>
+     </tr>
+     <tr>
+        <td class="plant-name urgent">Jasmine:</td>
+        <td class="urgent">You need to water Jasmine today!!</td>
+     </tr>
+  </table>
+  <button class="close-btn" id="close-popup">Close</button>
+</div>
   <!-- Popup modal -->
   <div id="popup" class="popup hidden">
     <div class="popup-content">
