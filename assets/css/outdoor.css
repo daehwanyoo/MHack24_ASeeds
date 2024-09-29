@@ -191,3 +191,14 @@ body {
   border: none;
   cursor: pointer;
 }
+
+.rectangle {
+  position: absolute;
+  top: 13.77%;
+  left: 70.91%;
+  width: 43.09%;
+  height: 36.96%;
+  background-color: transparent; /* Make it fully transparent */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+
+}
