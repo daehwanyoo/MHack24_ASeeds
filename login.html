@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
+
+   <title>Login form - Bedimcode</title>
+
+   <style>
+      body1 {
+         margin: 0;
+         padding: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: #f2f2f2;
+      }
+
+
+   </style>
+</head>
+<body>
+   <!-- Welcome message -->
+
+   <div class="login">
+      <img src="assets/img/login-bg.png" alt="image" class="login__bg">
+
+      <form action="" class="login__form">
+         <h1 class="login__title">Login</h1>
+
+         <div class="login__inputs">
+            <div class="login__box">
+               <input type="email" placeholder="Email ID" required class="login__input">
+               <i class="ri-mail-fill"></i>
+            </div>
+
+            <div class="login__box">
+               <input type="password" placeholder="Password" required class="login__input">
+               <i class="ri-lock-2-fill"></i>
+            </div>
+         </div>
+
+         <div class="login__check">
+            <div class="login__check-box">
+               <input type="checkbox" class="login__check-input" id="user-check">
+               <label for="user-check" class="login__check-label">Remember me</label>
+            </div>
+
+            <a href="#" class="login__forgot">Forgot Password?</a>
+         </div>
+
+         <button type="submit" class="login__button">Login</button>
+
+         <div class="login__register">
+            Don't have an account? <a href="./register.html">Register</a>
+         </div>
+      </form>
+   </div>
+
+   <script>
+      // Get the welcome message and login form elements
+      const welcomeMessage = document.querySelector('.welcome-message');
+      const loginForm = document.querySelector('.login');
+
+      // Add fade-in class to welcome message
+      welcomeMessage.classList.add('fade-in');
+
+      // After 3 seconds (fade in), start fade out animation and show the login form
+      setTimeout(() => {
+         welcomeMessage.classList.add('fade-out');
+         welcomeMessage.classList.remove('fade-in');
+      }, 2000);
+
+      // After 4 seconds (3s fade-in + 1s fade-out), show the login form
+      setTimeout(() => {
+         loginForm.classList.add('show-login');
+      }, 2000);
+   </script>
+</body>
+</html>

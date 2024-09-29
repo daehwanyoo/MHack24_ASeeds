@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/register.css">
+
+   <title>Register - Bedimcode</title>
+</head>
+<body>
+   <!-- Register form -->
+   <div class="register">
+      <img src="assets/img/login-bg.png" alt="image" class="register__bg">
+
+      <form action="" class="register__form">
+         <h1 class="register__title">Register</h1>
+
+         <div class="register__inputs">
+            <div class="register__box">
+               <input type="text" placeholder="Username" required class="register__input" id="username">
+               <i class="ri-user-fill"></i>
+            </div>
+
+            <div class="register__box">
+               <input type="email" placeholder="Email ID" required class="register__input" id="email">
+               <i class="ri-mail-fill"></i>
+            </div>
+
+            <div class="register__box">
+               <input type="password" placeholder="Password" required class="register__input" id="password">
+               <i class="ri-lock-2-fill"></i>
+            </div>
+
+            <div class="register__box">
+               <input type="password" placeholder="Re-type Password" required class="register__input" id="retype-password">
+               <i class="ri-lock-2-fill"></i>
+            </div>
+         </div>
+
+         <button type="submit" class="register__button">Finish Register</button>
+
+         <div class="register__login">
+            Already have an account? <a href="login.html">Login</a>
+         </div>
+      </form>
+   </div>
+
+   <script>
+      const username = document.querySelector('#username');
+      const email = document.querySelector('#email');
+      const password = document.querySelector('#password');
+      const retypePassword = document.querySelector('#retype-password');
+      const form = document.querySelector('.register__form');
+
+      form.addEventListener('submit', (e) => {
+         e.preventDefault();
+
+         if (password.value !== retypePassword.value) {
+            alert('Passwords do not match');
+         } else {
+            // Store user data in local storage
+            localStorage.setItem('username', username.value);
+            localStorage.setItem('email', email.value);
+            localStorage.setItem('password', password.value);
+
+            // Redirect after submission
+            window.location.href = 'loginafterSuccess.html';
+         }
+      });
+   </script>
+</body>
+</html>

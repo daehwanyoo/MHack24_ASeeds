@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
+
+   <title>Login form - Bedimcode</title>
+
+   <style>
+      body1 {
+         margin: 0;
+         padding: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: #f2f2f2;
+      }
+
+      /* Welcome message styling */
+      .welcome-message {
+      font-size: 7rem; /* Slightly bigger welcome */
+      color: #834914; /* Pink welcome message */
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 1s ease;
+      text-align: center;
+      font-weight: bold; /* Set the welcome message to bold */
+
+      }
+
+      .fade-in {
+         animation: fadeIn 1s forwards;
+      }
+
+      .fade-out {
+         animation: fadeOut 1s forwards;
+      }
+
+      @keyframes fadeIn {
+         0% {
+            opacity: 0;
+         }
+         100% {
+            opacity: 1;
+         }
+      }
+
+      @keyframes fadeOut {
+         0% {
+            opacity: 1;
+         }
+         100% {
+            opacity: 0;
+         }
+      }
+
+      /* Hide the login form initially */
+      .login {
+         opacity: 0;
+         transition: opacity 1s ease;
+      }
+
+      .show-login {
+         opacity: 1;
+      }
+
+   </style>
+</head>
+<body>
+   <!-- Welcome message -->
+   <img src="assets/img/login-bg.png" alt="image" class="login__bg">
+
+   <div class="welcome-message">Welcome</div>
+
+   <div class="login">
+      <img src="assets/img/login-bg.png" alt="image" class="login__bg">
+
+      <form action="" class="login__form">
+         <h1 class="login__title">Login</h1>
+
+         <div class="login__inputs">
+            <div class="login__box">
+               <input type="email" placeholder="Email ID" required class="login__input" id="login-email">
+               <i class="ri-mail-fill"></i>
+            </div>
+
+            <div class="login__box">
+               <input type="password" placeholder="Password" required class="login__input" id="login-password">
+               <i class="ri-lock-2-fill"></i>
+            </div>
+         </div>
+
+         <div class="login__check">
+            <div class="login__check-box">
+               <input type="checkbox" class="login__check-input" id="user-check">
+               <label for="user-check" class="login__check-label">Remember me</label>
+            </div>
+
+            <a href="#" class="login__forgot">Forgot Password?</a>
+         </div>
+
+         <button type="submit" class="login__button">Login</button>
+
+         <div class="login__register">
+            Don't have an account? <a href="./register.html">Register</a>
+         </div>
+      </form>
+   </div>
+
+   <script>
+      // Get the welcome message and login form elements
+      const welcomeMessage = document.querySelector('.welcome-message');
+      const loginForm = document.querySelector('.login');
+      const loginEmail = document.querySelector('#login-email');
+      const loginPassword = document.querySelector('#login-password');
+
+      // Add fade-in class to welcome message
+      welcomeMessage.classList.add('fade-in');
+
+      // After 3 seconds (fade in), start fade out animation and show the login form
+      setTimeout(() => {
+         welcomeMessage.classList.add('fade-out');
+         welcomeMessage.classList.remove('fade-in');
+      }, 1500);
+
+      // After 4 seconds (3s fade-in + 1s fade-out), show the login form
+      setTimeout(() => {
+         loginForm.classList.add('show-login');
+      }, 2000);
+            loginForm.addEventListener('submit', (e) => {
+         e.preventDefault();
+
+         // Retrieve stored user data from local storage
+         const storedEmail = localStorage.getItem('email');
+         const storedPassword = localStorage.getItem('password');
+
+         // Check if login credentials match stored data
+         if (loginEmail.value === storedEmail && loginPassword.value === storedPassword) {
+            // Redirect to indoor.html on successful login
+            window.location.href = 'indoor.html';
+         } else {
+            alert('Incorrect email or password');
+         }
+      });
+
+   </script>
+</body>
+</html>

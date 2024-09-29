@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
+
+   <title>Login after Success - Bedimcode</title>
+
+   <style>
+      body1 {
+         margin: 0;
+         padding: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: #f2f2f2;
+      }
+
+      .success-message {
+         font-size: 1.5rem;
+         color: #fff;
+         background-color: rgba(0, 255, 0, 0.8); /* Light green background */
+         border: 2px solid hsla(0, 0%, 100%, 0.7); /* Similar border to login box */
+         padding: 1rem 2rem;
+         border-radius: 1rem;
+         position: absolute;
+         top: 20%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         text-align: center;
+         opacity: 0;
+         z-index: 999; /* Ensuring it's above other elements */
+         backdrop-filter: blur(8px); /* Glass effect */
+         transition: opacity 1s ease-in-out;
+      }
+
+      .fade-in {
+         opacity: 1; /* Ensure opacity is set to 1 in the class */
+         transition: opacity 1s ease-in-out;
+      }
+
+      .fade-out {
+         opacity: 0;
+         transition: opacity 1s ease-in-out;
+      }
+
+   </style>
+</head>
+<body>
+   <!-- Success message -->
+   <div class="success-message">Successfully Registered!</div>
+
+   <div class="login">
+      <img src="assets/img/login-bg.png" alt="image" class="login__bg">
+
+      <form action="" class="login__form">
+         <h1 class="login__title">Login</h1>
+
+         <div class="login__inputs">
+            <div class="login__box">
+               <input type="email" placeholder="Email ID" required class="login__input" id="login-email">
+               <i class="ri-mail-fill"></i>
+            </div>
+
+            <div class="login__box">
+               <input type="password" placeholder="Password" required class="login__input" id="login-password">
+               <i class="ri-lock-2-fill"></i>
+            </div>
+         </div>
+
+         <div class="login__check">
+            <div class="login__check-box">
+               <input type="checkbox" class="login__check-input" id="user-check">
+               <label for="user-check" class="login__check-label">Remember me</label>
+            </div>
+
+            <a href="#" class="login__forgot">Forgot Password?</a>
+         </div>
+
+         <button type="submit" class="login__button">Login</button>
+
+         <div class="login__register">
+            Don't have an account? <a href="./register.html">Register</a>
+         </div>
+      </form>
+   </div>
+
+   <script>
+      // Get the success message and login form elements
+      const successMessage = document.querySelector('.success-message');
+      const loginForm = document.querySelector('.login__form');
+      const loginEmail = document.querySelector('#login-email');
+      const loginPassword = document.querySelector('#login-password');
+
+      // Add fade-in class to success message
+      successMessage.classList.add('fade-in');
+
+      // Allow the success message to fade in for 3 seconds, then fade out after 5 seconds
+      setTimeout(() => {
+         successMessage.classList.add('fade-out');
+         successMessage.classList.remove('fade-in');
+      }, 3000);  // Wait for 3 seconds before starting the fade-out
+
+      // Ensure the login form is shown (if needed)
+      document.querySelector('.login').classList.add('show-login');
+
+      // Handle login form submission
+      loginForm.addEventListener('submit', (e) => {
+         e.preventDefault();
+
+         // Retrieve stored user data from local storage
+         const storedEmail = localStorage.getItem('email');
+         const storedPassword = localStorage.getItem('password');
+
+         // Check if login credentials match stored data
+         if (loginEmail.value === storedEmail && loginPassword.value === storedPassword) {
+            // Redirect to indoor.html on successful login
+            window.location.href = 'outdoor.html';
+         } else {
+            alert('Incorrect email or password');
+         }
+      });
+   </script>
+</body>
+</html>
