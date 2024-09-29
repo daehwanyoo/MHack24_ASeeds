@@ -104,15 +104,19 @@ body {
 }
 
 .popup {
+  color: #bc9cf8;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
   padding: 20px;
-  background-color: white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  z-index: 10;
+  /* background-color: #F5F5F5; Light off-white background */
+  background-color: hsla(0, 0%, 100%, .25);
+  backdrop-filter: blur(3px);
+  border-radius: 15px; /* Soft rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  border: 2px solid #d0bcf5; /* Soft border to match aesthetic */
 }
 
 .popup-content label {
@@ -121,6 +125,10 @@ body {
 }
 
 .popup-content input {
+  border: 2px solid #D1C4E9;
+  background-color: hsla(0, 0%, 100%, .01);
+  backdrop-filter: blur(3px);
+  border-radius: 2em;
   width: 100%;
   padding: 5px;
 }
@@ -129,8 +137,13 @@ body {
   margin-top: 10px;
   padding: 10px;
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #bc9cf8;
+  border-radius: 2em;
   color: white;
   border: none;
   cursor: pointer;
+}
+
+#watered-date {
+  color: #bc9cf8;
 }
