@@ -11,9 +11,6 @@
       button.addEventListener("click", function() {
         openPopup(index, button);
       });
-
-      // Make the button draggable
-      makeDraggable(button);
     });
 
     // Make the plant images clickable as well
